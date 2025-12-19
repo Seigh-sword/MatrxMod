@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MatrixMod Web Hub</title>
 
-<!-- Favicon -->
+<!-- Favicon uses full logo -->
 <link rel="icon" href="assets/logo.png" type="image/png">
 
 <style>
@@ -19,35 +19,40 @@
   canvas {
     display: block;
   }
+
+  /* UI container */
   #ui {
     position: absolute;
     top: 20px;
     left: 20px;
     z-index: 10;
   }
-  /* Terminal-style buttons with icon.png */
+
+  /* Terminal-style buttons using icon.png outline */
   .terminal-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('assets/icon.png') no-repeat center/cover;
-    color: #0F0;
-    border: 2px solid #0F0;
-    border-radius: 15px;
     width: 120px;
     height: 50px;
     margin: 5px;
     cursor: pointer;
     font-family: monospace;
     font-weight: bold;
+    color: #0F0;
     text-shadow: 0 0 5px #0F0;
+    background: url('assets/icon.png') no-repeat center/contain;
+    border: none;
+    background-color: transparent;
   }
+
   .terminal-btn:hover {
-    background-color: #0F0;
     color: #000;
     text-shadow: none;
+    background-color: #0F0;
   }
-  /* Logo in page */
+
+  /* Page logo uses full logo.png */
   #logo {
     position: absolute;
     top: 20px;
@@ -106,7 +111,7 @@ function drawMatrix() {
 
 setInterval(drawMatrix, 50);
 
-// FEATURE BUTTONS (placeholder fun)
+// Feature buttons placeholder
 function feature1() { alert("💥 Feature 1 Activated!"); }
 function feature2() { alert("⚡ Feature 2 Activated!"); }
 function feature3() { alert("🔥 Feature 3 Activated!"); }
