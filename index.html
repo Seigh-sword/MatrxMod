@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MatrixMod Web Hub</title>
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: #0F0;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+  }
+  #ui {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+  }
+  button {
+    background: #000;
+    color: #0F0;
+    border: 1px solid #0F0;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-family: monospace;
+  }
+  button:hover {
+    background: #0F0;
+    color: #000;
+  }
+</style>
+</head>
+<body>
+
+<div id="ui">
+  <button onclick="feature1()">Activate Feature 1</button>
+  <button onclick="feature2()">Activate Feature 2</button>
+  <button onclick="feature3()">Activate Feature 3</button>
+</div>
+
+<canvas id="matrix"></canvas>
+
+<script>
+// MATRIX EFFECT 🚀
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for (let x = 0; x < columns; x++) drops[x] = 1;
+
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#0F0";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters[Math.floor(Math.random() * letters.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+    drops[i]++;
+  }
+}
+
+setInterval(drawMatrix, 50);
+
+// FEATURE BUTTONS (for now just fun alerts)
+function feature1() { alert("💥 Feature 1 Activated!"); }
+function feature2() { alert("⚡ Feature 2 Activated!"); }
+function feature3() { alert("🔥 Feature 3 Activated!"); }
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+
+</body>
+</html>
