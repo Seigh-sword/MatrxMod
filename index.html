@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MatrixMod Web Hub</title>
+
+<!-- Favicon flex -->
+<link rel="icon" href="assets/logo.png" type="image/png">
+
 <style>
   body {
     margin: 0;
@@ -34,9 +38,21 @@
     background: #0F0;
     color: #000;
   }
+  /* Logo in page */
+  #logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    z-index: 10;
+  }
 </style>
 </head>
 <body>
+
+<!-- Page logo -->
+<img src="assets/logo.png" id="logo" alt="MatrixMod Logo">
 
 <div id="ui">
   <button onclick="feature1()">Activate Feature 1</button>
@@ -81,7 +97,7 @@ function drawMatrix() {
 
 setInterval(drawMatrix, 50);
 
-// FEATURE BUTTONS (for now just fun alerts)
+// FEATURE BUTTONS (placeholder fun)
 function feature1() { alert("💥 Feature 1 Activated!"); }
 function feature2() { alert("⚡ Feature 2 Activated!"); }
 function feature3() { alert("🔥 Feature 3 Activated!"); }
