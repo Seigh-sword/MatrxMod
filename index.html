@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MatrixMod Web Hub</title>
 
-<!-- Favicon flex -->
+<!-- Favicon -->
 <link rel="icon" href="assets/logo.png" type="image/png">
 
 <style>
@@ -25,18 +25,27 @@
     left: 20px;
     z-index: 10;
   }
-  button {
-    background: #000;
+  /* Terminal-style buttons with icon.png */
+  .terminal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('assets/icon.png') no-repeat center/cover;
     color: #0F0;
-    border: 1px solid #0F0;
-    padding: 10px 20px;
+    border: 2px solid #0F0;
+    border-radius: 15px;
+    width: 120px;
+    height: 50px;
     margin: 5px;
     cursor: pointer;
     font-family: monospace;
+    font-weight: bold;
+    text-shadow: 0 0 5px #0F0;
   }
-  button:hover {
-    background: #0F0;
+  .terminal-btn:hover {
+    background-color: #0F0;
     color: #000;
+    text-shadow: none;
   }
   /* Logo in page */
   #logo {
@@ -55,9 +64,9 @@
 <img src="assets/logo.png" id="logo" alt="MatrixMod Logo">
 
 <div id="ui">
-  <button onclick="feature1()">Activate Feature 1</button>
-  <button onclick="feature2()">Activate Feature 2</button>
-  <button onclick="feature3()">Activate Feature 3</button>
+  <div class="terminal-btn" onclick="feature1()">>_ Feature 1</div>
+  <div class="terminal-btn" onclick="feature2()">>_ Feature 2</div>
+  <div class="terminal-btn" onclick="feature3()">>_ Feature 3</div>
 </div>
 
 <canvas id="matrix"></canvas>
